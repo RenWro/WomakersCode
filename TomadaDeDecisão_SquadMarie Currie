@@ -1,2 +1,98 @@
-#Exercício 1
 
+'''
+#Exercício 1 Módulo 2
+
+def imprimir_maior_numero():
+
+    num1 = float(input("Digite o primeiro número: "))
+    num2 = float(input("Digite o segundo número: "))
+
+    if num1 > num2:
+        print(f"O maior número é: {int(num1)}")
+    elif num2 > num1:
+        print(f"O maior número é: {int(num2)}")
+    else:
+        print("Os números são iguais.")
+
+
+imprimir_maior_numero()
+'''
+'''
+# Exercício 2 Módulo 2
+
+def saudacao_turno():
+    turno = input("Em que turno você estuda? Digite M para matutino, V para vespertino ou N para noturno: ").upper()
+
+    if turno == "M":
+        print("Bom Dia!")
+    elif turno == "V":
+        print("Boa Tarde!")
+    elif turno == "N":
+        print("Boa Noite!")
+    else:
+        print("Valor Inválido!")
+
+saudacao_turno()
+
+'''
+
+
+'''
+#Exercício 3 Módulo 2
+
+def pedir_nota():
+    while True:
+        nota = input("Digite uma nota entre zero e dez: ")
+
+        if nota.replace('.', '', 1).isdigit():
+            nota = float(nota)
+            if 0 <= nota <= 10:
+                print(f"Nota válida: {nota}")
+                break
+            else:
+                print("Valor inválido. A nota deve estar entre zero e dez.")
+        else:
+            print("Valor inválido. Por favor, digite um número.")
+
+pedir_nota()
+'''
+'''
+#Exercício 4 Módulo 2
+
+def classificar_aluno():
+    nota = float(input("Digite a nota do aluno (de 0 a 10): "))
+
+    if 0 <= nota <= 10:
+        if nota >= 7:
+            print("Aluno aprovado!")
+        else:
+            print("Aluno reprovado.")
+    else:
+        print("Nota inválida. Por favor, insira uma nota de 0 a 10.")
+
+classificar_aluno()
+'''
+
+
+'''
+#Exercício 5 Módulo 2
+
+def classificar_triangulo():
+    lado1 = float(input("Digite o comprimento do primeiro lado do triângulo: "))
+    lado2 = float(input("Digite o comprimento do segundo lado do triângulo: "))
+    lado3 = float(input("Digite o comprimento do terceiro lado do triângulo: "))
+
+    if lado1 + lado2 > lado3 and lado1 + lado3 > lado2 and lado2 + lado3 > lado1:
+        if lado1 == lado2 == lado3:
+            print("O triângulo é equilátero.")
+        elif lado1 == lado2 or lado1 == lado3 or lado2 == lado3:
+            print("O triângulo é isósceles.")
+        else:
+            print("O triângulo é escaleno.")
+    else:
+        print("Os comprimentos fornecidos não formam um triângulo.")
+
+classificar_triangulo()
+
+'''
+#Exercício 6 Módulo 2

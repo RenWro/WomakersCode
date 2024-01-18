@@ -16,3 +16,5 @@ def main():
     print(f"Subtração: {subtracao}")
     print(f"Multiplicação: {multiplicacao}")
     print(f"Divisão: {divisao}")
+
+main()

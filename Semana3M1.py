@@ -52,6 +52,48 @@ divinteira = numero1 // numero2
 print (divinteira)
 
 """
+"""#Incremento
+valor = 5 
+valor += 1
+print(valor)
+
+#Resto
+valor %
+
+#Decremento
+valor = 5
+valor -= 1
+valor (valor)
+""""
+"""
+#Ordem de precedência
+#O que vem primeiro e o que vem depois através de parênteses
+calculo = (2+5)*5
+print(calculo)
+""""
+
+'''
+Operadores relacionais
+== : igual
+> : Maior
+< : Menor
+>= : Maior igual
+<= : Menor igual
+!= diferente
+'''
+"""
+#Interpolação de strings - colocar vários variáveis na mesma mensagem
+print (f'A soma é {soma}')
+
+f = format
+{} = para colocar a função
+"""
+
+#2f determina quantas casas (2) vão aparecer depois do valor
+valor = 45.00325
+print(f'{valor:.2f}')
+print('Olá {}, você tem {} anos'.format('Isadora', 26))
+
 
 
 

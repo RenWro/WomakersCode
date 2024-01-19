@@ -1,0 +1,224 @@
+
+'''
+#Exercício 1 Módulo 2
+
+def imprimir_maior_numero():
+    
+    while True:
+    
+        num1 = float(input("Digite o primeiro número: "))
+        num2 = float(input("Digite o segundo número: "))
+    
+        if num1 > num2:
+            print(f"O maior número é: {int(num1)}")
+        elif num2 > num1:
+            print(f"O maior número é: {int(num2)}")
+        else:
+            print("Os números são iguais.")
+
+
+imprimir_maior_numero()
+'''
+'''
+# Exercício 2 Módulo 2
+
+def saudacao_turno():
+    while True:
+        turno = input("Em que turno você estuda? Digite M para matutino, V para vespertino ou N para noturno: ").upper()
+    
+        if turno == "M":
+            print("Bom Dia!")
+        elif turno == "V":
+            print("Boa Tarde!")
+        elif turno == "N":
+            print("Boa Noite!")
+        else:
+            print("Valor Inválido!")
+
+saudacao_turno()
+
+'''
+
+
+'''
+#Exercício 3 Módulo 2
+
+def pedir_nota():
+    while True:
+        nota = input("Digite uma nota entre zero e dez: ")
+
+        if nota.replace('.', '', 1).isdigit():
+            nota = float(nota)
+            if 0 <= nota <= 10:
+                print(f"Nota válida: {nota}")
+                break
+            else:
+                print("Valor inválido. A nota deve estar entre zero e dez.")
+        else:
+            print("Valor inválido. Por favor, digite um número.")
+
+pedir_nota()
+'''
+'''
+#Exercício 4 Módulo 2
+
+def classificar_aluno():
+    while True:
+        nota = float(input("Digite a nota do aluno (de 0 a 10): "))
+    
+        if 0 <= nota <= 10:
+            if nota >= 7:
+                print("Aluno aprovado!")
+            else:
+                print("Aluno reprovado.")
+        else:
+            print("Nota inválida. Por favor, insira uma nota de 0 a 10.")
+
+classificar_aluno()
+'''
+
+
+'''
+#Exercício 5 Módulo 2
+
+def classificar_triangulo():
+    lado1 = float(input("Digite o comprimento do primeiro lado do triângulo: "))
+    lado2 = float(input("Digite o comprimento do segundo lado do triângulo: "))
+    lado3 = float(input("Digite o comprimento do terceiro lado do triângulo: "))
+
+    if lado1 + lado2 > lado3 and lado1 + lado3 > lado2 and lado2 + lado3 > lado1:
+        if lado1 == lado2 == lado3:
+            print("O triângulo é equilátero.")
+        elif lado1 == lado2 or lado1 == lado3 or lado2 == lado3:
+            print("O triângulo é isósceles.")
+        else:
+            print("O triângulo é escaleno.")
+    else:
+        print("Os comprimentos fornecidos não formam um triângulo.")
+
+classificar_triangulo()
+
+'''
+
+'''
+#Exercício 6 Módulo 2
+
+def verificar_acesso():
+    while True:
+        login = input("Digite o login: ")
+        senha = input("Digite a senha: ")
+
+        if login == "admin" and senha == "admin123":
+            print("Acesso permitido.")
+            break
+        else:
+            print("Erro: login ou senha incorretos. Tente novamente.")
+
+verificar_acesso()
+'''
+
+
+'''
+#Exercício 7 Módulo 2
+
+def classificar_idade():
+    while True:
+        idade = int(input("Digite sua idade: "))
+
+        if idade <= 12:
+            print("Você é uma criança.")
+        elif 13 <= idade <= 17:
+            print("Você é um adolescente.")
+        elif 18 <= idade <= 65:
+            print("Você é um adulto.")
+        else:
+            print("Você é um idoso.")
+
+classificar_idade()
+'''
+
+'''
+#Exercício 8 Módulo 2
+
+def encontrar_maior_numero():
+    while True:
+        num1 = float(input("Digite o primeiro número: "))
+        num2 = float(input("Digite o segundo número: "))
+        num3 = float(input("Digite o terceiro número: "))
+
+        if num1 >= num2 and num1 >= num3:
+            maior = num1
+        elif num2 >= num1 and num2 >= num3:
+            maior = num2
+        else:
+            maior = num3
+
+        print(f"O maior número é: {maior}")
+
+encontrar_maior_numero()
+'''
+
+'''
+#Exercício 9 Módulo 2
+
+def contar_pares_impares():
+    contagem_pares = 0
+    contagem_impares = 0
+
+    while True:
+        try:
+            numero = int(input("Digite um número positivo (ou 0 para encerrar): "))
+
+            if numero == 0:
+                break
+            elif numero < 0:
+                print("Por favor, insira apenas números positivos.")
+                continue
+
+            if numero % 2 == 0:
+                contagem_pares += 1
+            else:
+                contagem_impares += 1
+
+        except ValueError:
+            print("Entrada inválida. Por favor, digite um número inteiro.")
+
+    print(f"Quantidade de números pares: {contagem_pares}")
+    print(f"Quantidade de números ímpares: {contagem_impares}")
+
+
+contar_pares_impares()
+'''
+
+
+#Exercício 10 Módulo 2
+
+def mostrar_em_ordem_crescente():
+    num1 = int(input("Digite o primeiro número inteiro: "))
+    num2 = int(input("Digite o segundo número inteiro: "))
+    num3 = int(input("Digite o terceiro número inteiro: "))
+
+
+    #Não sei se podia usar .sort, então fiz assim
+    if num1 <= num2 and num1 <= num3:
+        menor = num1
+        if num2 <= num3:
+            meio, maior = num2, num3
+        else:
+            meio, maior = num3, num2
+    elif num2 <= num1 and num2 <= num3:
+        menor = num2
+        if num1 <= num3:
+            meio, maior = num1, num3
+        else:
+            meio, maior = num3, num1
+    else:
+        menor = num3
+        if num1 <= num2:
+            meio, maior = num1, num2
+        else:
+            meio, maior = num2, num1
+
+    print("Números em ordem crescente:", menor, meio, maior)
+
+mostrar_em_ordem_crescente()

@@ -1,1 +1,182 @@
+'''
 #Exercício 1 Módulo 3
+def classificar_suspeito():
+
+    perguntas = [
+        "Telefonou para a vítima?",
+        "Esteve no local do crime?",
+        "Mora perto da vítima?",
+        "Devia para a vítima?",
+        "Já trabalhou com a vítima?"
+    ]
+
+    respostas_positivas = 0
+
+    for pergunta in perguntas:
+        resposta = input(pergunta + " (sim/não) ").lower()
+        if resposta == "sim":
+            respostas_positivas += 1
+
+    if respostas_positivas == 2:
+        classificacao = "Suspeita"
+    elif 3 <= respostas_positivas <= 4:
+        classificacao = "Cúmplice"
+    elif respostas_positivas == 5:
+        classificacao = "Assassino"
+    else:
+        classificacao = "Inocente"
+
+    print(f"A classificação da pessoa no crime é: {classificacao}")
+
+classificar_suspeito()
+'''
+
+
+'''
+#Exercício 2 Módulo 3
+def calcular_medias():
+    medias = []  # Lista para armazenar as médias dos alunos
+    alunos_com_media_7_ou_mais = 0  # Contador de alunos com média >= 7
+
+    for i in range(5):  # Loop para 5 alunos
+        print(f"Aluno {i+1}:")
+        total_notas = 0
+        for j in range(4):  # Loop para 4 notas
+            while True:
+                try:
+                    nota = float(input(f"Digite a nota {j+1}: "))
+                    if 0 <= nota <= 10:  # Verifica se a nota está no intervalo válido
+                        break
+                    else:
+                        print("Por favor, digite uma nota entre 0 e 10.")
+                except ValueError:
+                    print("Entrada inválida. Por favor, digite um número.")
+
+            total_notas += nota
+        media = total_notas / 4
+        medias.append(media)  # Adiciona a média na lista
+
+        if media >= 7.0:
+            alunos_com_media_7_ou_mais += 1
+
+    print("Médias dos alunos:", medias)
+    print(f"Número de alunos com média maior ou igual a 7.0: {alunos_com_media_7_ou_mais}")
+
+calcular_medias()
+'''
+
+'''
+#Exercício 3 Módulo 3
+def normalizar_nome_produto(nome):
+    nome_normalizado = nome.lower()
+    equivalencias = {
+        "maca": "maçã",
+        "maça": "maçã",
+        "macã": "maçã",
+        "pao" : "pão"
+        "nao" : "não"
+    }
+    return equivalencias.get(nome_normalizado, nome_normalizado)
+
+
+def adicionar_ao_carrinho(carrinho, produto, quantidade):
+    if produto in carrinho:
+        carrinho[produto] += quantidade
+    else:
+        carrinho[produto] = quantidade
+
+
+def calcular_total(carrinho, precos):
+    total = 0
+    for produto, quantidade in carrinho.items():
+        total += precos.get(produto, 0) * quantidade
+    return total
+
+
+# Preços fixos para cada produto
+precos = {
+    "maçã": 1.0,
+    "banana": 0.5,
+    "leite": 3.0,
+    "pão": 2.0
+}
+
+# Carrinho de compras
+carrinho = {}
+
+while True:
+    print("Produtos disponíveis e seus preços:", precos)
+    produto = input("Digite o nome do produto que deseja adicionar ao carrinho: ")
+    produto = normalizar_nome_produto(produto)
+
+    if produto in precos:
+        quantidade = int(input(f"Digite a quantidade de {produto} que deseja adicionar: "))
+        adicionar_ao_carrinho(carrinho, produto, quantidade)
+    else:
+        print("Produto não encontrado. Tente novamente.")
+
+    continuar = input("Deseja adicionar mais um item? (sim/não) ").lower()
+    if continuar != "sim":
+        break
+
+# Calculando o total do carrinho
+total = calcular_total(carrinho, precos)
+print("\nCarrinho:", carrinho)
+print("Total do carrinho de compras: R$", total)
+
+'''
+
+'''
+#Exercício 4 Módulo 3
+def adicionar_contato(contatos, nome, telefone):
+    contatos[nome.lower()] = telefone  # Normaliza o nome para minúsculas
+
+# Dicionário de contatos
+contatos = {}
+
+# Exemplo de contatos
+adicionar_contato(contatos, "Alice", "1234-5678")
+adicionar_contato(contatos, "Clara", "1111-2222")
+adicionar_contato(contatos, "Julia", "3333-4444")
+adicionar_contato(contatos, "Mariana", "5555-6666")
+adicionar_contato(contatos, "Fernanda", "7777-8888")
+adicionar_contato(contatos, "Paula", "9999-0000")
+adicionar_contato(contatos, "Larissa", "1212-3434")
+
+while True:
+    # Interface para procurar um contato
+    nome_procurado = input("Digite o nome do contato que deseja procurar (ou digite 'sair' para finalizar): ").lower()
+    if nome_procurado == 'sair':
+        break
+
+    if nome_procurado in contatos:
+        print(f"Nome: {nome_procurado.capitalize()}")
+        print(f"Telefone: {contatos[nome_procurado]}")
+    else:
+        print("Contato não encontrado.")
+
+    print("\n")
+'''
+
+'''
+#Exercício 5 Módulo 3
+
+tupla1 = ("Ada Lovelace", "Grace Hopper", "Hedy Lamarr")
+tupla2 = ("Katherine Johnson", "Annie Easley", "Dorothy Vaughan")
+
+# Concatenando as tuplas
+tupla_concatenada = tupla1 + tupla2
+
+print("Mulheres históricas na tecnologia:", tupla_concatenada)
+'''
+
+
+#Exercício 6 Módulo 3
+
+def exibir_nome_invertido():
+    nome = input("Digite seu nome: ")
+    nome_invertido = nome[::-1].upper()  # Inverte o nome e converte para maiúsculas
+    print("Nome de trás para frente em maiúsculas:", nome_invertido)
+
+# Chama a função para executar o programa
+exibir_nome_invertido()

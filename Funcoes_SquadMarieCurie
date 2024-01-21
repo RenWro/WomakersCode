@@ -1,1 +1,144 @@
-# Exercício 1 Módulo 4
+'''
+#Exercício 1 Módulo 4
+
+def somar_tres_numeros(num1, num2, num3):
+    return num1 + num2 + num3
+
+while True:
+    try:
+        numero1 = float(input("Digite o primeiro número (ou 'sair' para encerrar): "))
+        numero2 = float(input("Digite o segundo número: "))
+        numero3 = float(input("Digite o terceiro número: "))
+
+        resultado = somar_tres_numeros(numero1, numero2, numero3)
+        print("A soma dos três números é:", resultado)
+
+    except ValueError as e:
+        if str(e) == "could not convert string to float: 'sair'":
+            break
+        else:
+            print("Por favor, digite um número válido.")
+
+    print("\n")
+
+print("Programa encerrado.")
+'''
+
+
+'''
+#Exercício 2 Módulo 4
+
+def reverso_numero(num):
+    num_str = str(num)            # Converte o número para string
+    num_str_reverso = num_str[::-1]  # Inverte a string
+    return num_str_reverso   # Mantém como string
+
+numero = input("Digite um número inteiro: ")
+numero_reverso = reverso_numero(numero)
+print("O reverso do número é:", numero_reverso)
+'''
+
+
+'''
+#Exercício 3 Módulo 4
+
+def celsius_para_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+def fahrenheit_para_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+
+def menu():
+    while True:
+        print("\nMenu de Conversão de Temperatura")
+        print("1 - Converter de Celsius para Fahrenheit")
+        print("2 - Converter de Fahrenheit para Celsius")
+        print("3 - Sair")
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == '1':
+            celsius = float(input("Digite a temperatura em Celsius: "))
+            print(f"{celsius}°C é igual a {celsius_para_fahrenheit(celsius):.2f}°F")
+        elif opcao == '2':
+            fahrenheit = float(input("Digite a temperatura em Fahrenheit: "))
+            print(f"{fahrenheit}°F é igual a {fahrenheit_para_celsius(fahrenheit):.2f}°C")
+        elif opcao == '3':
+            print("Saindo do programa.")
+            break
+        else:
+            print("Opção inválida. Tente novamente.")
+
+menu()
+'''
+
+'''
+#Exercício 4 Módulo 4
+
+def calcular_moedas(dinheiro):
+    conversoes = {
+        "Dólar Americano": 4.91,
+        "Peso Argentino": 0.02,
+        "Dólar Australiano": 3.18,
+        "Dólar Canadense": 3.64,
+        "Franco Suíço": 0.42,
+        "Euro": 5.36,
+        "Libra Esterlina": 6.21
+    }
+
+    for moeda, taxa in conversoes.items():
+        quantidade = dinheiro / taxa
+        print(f"Com R$ {dinheiro:.2f}, você pode comprar {quantidade:.2f} {moeda}")
+
+dinheiro_na_carteira = float(input("Digite quanto dinheiro você tem na carteira (em R$): "))
+calcular_moedas(dinheiro_na_carteira)
+'''
+
+'''
+#Exercício 5 Módulo 4
+
+def contar_vogais(frase):
+    vogais = 'aeiouAEIOU'
+    total_vogais = sum(1 for letra in frase if letra in vogais)
+    return total_vogais
+
+frase_usuario = input("Digite uma frase: ")
+
+total_vogais = contar_vogais(frase_usuario)
+print(f"Total de vogais na frase: {total_vogais}")
+'''
+
+
+#Exercício 6 Módulo 4
+
+import random
+
+def escolher_palavra_secreta(lista_palavras):
+    return random.choice(lista_palavras)
+
+def mostrar_situacao_atual(palavra_secreta, letras_acertadas):
+    situacao = ''.join(letra if letra in letras_acertadas else '_' for letra in palavra_secreta)
+    print(situacao)
+
+def jogo_forca():
+    lista_palavras = ["python", "jogadora", "computador", "programa", "desenvolvedora", "womaker", "mulheres", "tecnologia"]
+    palavra_secreta = escolher_palavra_secreta(lista_palavras)
+    letras_acertadas = set()
+    erros = 0
+
+    print("Bem-vindo ao jogo de Forca!")
+    while erros < 6 and set(palavra_secreta) != letras_acertadas:
+        mostrar_situacao_atual(palavra_secreta, letras_acertadas)
+        tentativa = input("Digite uma letra: ").lower()
+
+        if tentativa in palavra_secreta:
+            letras_acertadas.add(tentativa)
+        else:
+            erros += 1
+            print("Erro! Você tem", 6 - erros, "tentativas restantes.")
+
+    if set(palavra_secreta) == letras_acertadas:
+        print("Parabéns! Você adivinhou a palavra:", palavra_secreta)
+    else:
+        print("Game over! A palavra era:", palavra_secreta)
+
+jogo_forca()
